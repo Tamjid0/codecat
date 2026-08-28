@@ -32,6 +32,9 @@ def detect_package_manager(repo_path: Path) -> str:
 
 
 def _detect_test_cmd(repo_path: Path, pm: str) -> str | None:
+    import sys
+
+    py = sys.executable  # full path, handles Windows PYTHONHOME
     if pm == "npm":
         # check package.json scripts
         try:
@@ -46,9 +49,9 @@ def _detect_test_cmd(repo_path: Path, pm: str) -> str | None:
         return "npm test"
     if pm == "pip":
         if (repo_path / "pyproject.toml").exists():
-            return "pytest -q"
+            return f'"{py}" -m pytest -q'
         if (repo_path / "tests").exists():
-            return "pytest -q"
+            return f'"{py}" -m pytest -q'
         return None
     return None
 
@@ -67,6 +70,9 @@ def run_build_agent(repo_path: Path, out_evidence: Path) -> BuildResult:
     docker_log: SandboxResult | None = None
 
     # Install
+    import sys
+
+    py = sys.executable
     if pm == "npm":
         install_log = run_in_sandbox("npm ci --ignore-scripts", cwd=repo_path, timeout_sec=120)
         if install_log.returncode != 0:
@@ -74,9 +80,9 @@ def run_build_agent(repo_path: Path, out_evidence: Path) -> BuildResult:
         install_pass = install_log.passed
         (out_evidence / "install.log").write_text(install_log.combined, encoding="utf-8")
     elif pm == "pip":
-        install_log = run_in_sandbox("pip install -e . --quiet", cwd=repo_path, timeout_sec=120)
+        install_log = run_in_sandbox(f'"{py}" -m pip install -e . --quiet', cwd=repo_path, timeout_sec=120)
         if install_log.returncode != 0:
-            install_log = run_in_sandbox("pip install -r requirements.txt --quiet", cwd=repo_path, timeout_sec=120)
+            install_log = run_in_sandbox(f'"{py}" -m pip install -r requirements.txt --quiet', cwd=repo_path, timeout_sec=120)
         install_pass = install_log.passed if install_log else None
         if install_log:
             (out_evidence / "install.log").write_text(install_log.combined, encoding="utf-8")
