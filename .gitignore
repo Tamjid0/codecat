@@ -1,0 +1,31 @@
+# Out & evidence (reproducible but not committed except samples)
+out/
+evaluation_results/
+.tmp/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+*.pem
+*token*
+
+# Docker
+.dockerignore

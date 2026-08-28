@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "url": "https://github.com/pallets/flask",
+    "language": "python",
+    "expected_profile": "healthy anchor",
+    "expert_rank": 1,
+    "notes": "Well maintained, tests pass, good docs"
+  },
+  {
+    "id": 2,
+    "url": "https://github.com/expressjs/express",
+    "language": "javascript",
+    "expected_profile": "healthy but 1 CVE",
+    "expert_rank": 2,
+    "notes": "Healthy but subtle dep issue"
+  },
+  {
+    "id": 3,
+    "url": "https://github.com/psf/requests",
+    "language": "python",
+    "expected_profile": "healthy python baseline",
+    "expert_rank": 3,
+    "notes": "Baseline healthy"
+  },
+  {
+    "id": 4,
+    "url": "https://github.com/Tamjid0/broken-tests-fixture",
+    "language": "javascript",
+    "expected_profile": "broken tests",
+    "expert_rank": 8,
+    "notes": "REPLACE with real small public repo where tests FAIL - synthetic fixture if needed (public, MIT)"
+  },
+  {
+    "id": 5,
+    "url": "https://github.com/Tamjid0/cve-lodash-fixture",
+    "language": "javascript",
+    "expected_profile": "old lodash CVE",
+    "expert_rank": 7,
+    "notes": "REPLACE with real repo using lodash 4.17.19 - must have npm audit CVE"
+  },
+  {
+    "id": 6,
+    "url": "https://github.com/Tamjid0/circular-dep-fixture",
+    "language": "javascript",
+    "expected_profile": "circular deps",
+    "expert_rank": 9,
+    "notes": "Synthetic small repo with circular import - public, MIT"
+  },
+  {
+    "id": 7,
+    "url": "https://github.com/Tamjid0/lying-readme-fixture",
+    "language": "python",
+    "expected_profile": "README lies - challenging case",
+    "expert_rank": 10,
+    "notes": "README claims 'docker build works' but Dockerfile FAILs - core challenging case"
+  },
+  {
+    "id": 8,
+    "url": "https://github.com/sindresorhus/awesome",
+    "language": "markdown",
+    "expected_profile": "docs repo no deps",
+    "expert_rank": 4,
+    "notes": "Edge: no package.json, no tests"
+  },
+  {
+    "id": 9,
+    "url": "https://github.com/public-apis/public-apis",
+    "language": "python",
+    "expected_profile": "abandoned files bus factor 1",
+    "expert_rank": 5,
+    "notes": "Maintainability edge"
+  },
+  {
+    "id": 10,
+    "url": "https://github.com/Tamjid0/broken-docker-fixture",
+    "language": "python",
+    "expected_profile": "Dockerfile fails",
+    "expert_rank": 6,
+    "notes": "REPLACE with real small repo with broken Dockerfile"
+  }
+]
