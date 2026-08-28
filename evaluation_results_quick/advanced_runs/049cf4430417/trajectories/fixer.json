@@ -1,0 +1,8 @@
+{
+  "target": {
+    "kind": "dep_bump",
+    "file": "package.json",
+    "detail": "1 high CVE bump"
+  },
+  "patch": "JSON_EDIT: lodash 4.17.19 -> 4.17.21"
+}

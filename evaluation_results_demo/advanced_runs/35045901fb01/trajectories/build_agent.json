@@ -1,0 +1,5 @@
+{
+  "agent": "BuildAgent",
+  "instructions": "see docs/06",
+  "result": "BuildResult(install_pass=None, test_pass=None, docker_pass=None, install_log=None, test_log=None, docker_log=None, test_summary='no test command detected', package_manager='none')"
+}

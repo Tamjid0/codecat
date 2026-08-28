@@ -1,0 +1,12 @@
+[
+  {
+    "text": "docker build works",
+    "verdict": "FAIL",
+    "evidence": "docker.log:1"
+  },
+  {
+    "text": "npm test passes",
+    "verdict": "FAIL",
+    "evidence": "test.log:1"
+  }
+]

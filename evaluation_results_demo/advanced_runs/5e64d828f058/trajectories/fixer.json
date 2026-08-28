@@ -1,0 +1,8 @@
+{
+  "target": {
+    "kind": "tests",
+    "file": "evidence/test.log",
+    "detail": "tests fail - missing dep or import"
+  },
+  "patch": null
+}

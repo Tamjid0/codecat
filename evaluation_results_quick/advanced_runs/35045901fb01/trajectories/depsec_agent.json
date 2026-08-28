@@ -1,0 +1,4 @@
+{
+  "agent": "DepSecAgent",
+  "result": "DepSecResult(npm_audit_log=SandboxResult(command='npm audit --json', returncode=0, stdout='{}', stderr='no package.json', timed_out=False), pip_audit_log=SandboxResult(command='pip-audit --format=json', returncode=0, stdout='[]', stderr='no requirements', timed_out=False), npm_parsed={}, pip_parsed=[], high_cves=0, bus_factor=1, has_docker=False, git_log=SandboxResult(command='git log --stat --since=\"18 months ago\" --oneline -n 100', returncode=0, stdout='', stderr='', timed_out=False))"
+}

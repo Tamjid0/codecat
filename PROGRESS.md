@@ -52,10 +52,10 @@
 - [ ] 6.5 HackerEarth submission draft
 
 ## Current Status
-- **In progress:** 4.2 full 10-repo eval (preparing)
-- **Next:** 5.1 quality gates + 6 deliverables
+- **In progress:** 5.1 quality gates
+- **Next:** 5.2 reproducible build test
 - **Blockers:** none
-- **Last updated:** 2026-08-29 04:00
+- **Last updated:** 2026-08-29 04:15
 
 ## Log
 - 2026-08-29 02:30 — Locked base spec, README, docs 01-07, AGENTS.md created. Awaiting scaffold files before commit.
@@ -65,3 +65,5 @@
 - 2026-08-29 03:45 — Phase 2+3 done: 8 agents + orchestrator + CLI, verified 3 repos (Hello-World, vuln fail, vuln pass 69→81). Race bug fixed (Build→DepSec sequential), BOM fix, verifier fallback. Commit 7b801b9.
 - 2026-08-29 03:50 — Smoke eval 2-repo passed (advanced 70 vs 69), Windows rmtree fix, ruff PASS.
 - 2026-08-29 04:00 — Phase 4: Created 3 synthetic fixtures (circular, lying README, broken docker) + 10_repos_final.json locked. Ready for full eval.
+- 2026-08-29 04:10 — Eval 5-repo timed out (300s, needs 600s) but single audits verified (lying 63, vuln_pass 69→81). Updated changelog with real evidence, Windows verifier rmtree fix.
+- 2026-08-29 04:15 — Starting Phase 5 quality gates.

@@ -27,7 +27,18 @@ def verify_fix(
     tmp_base.mkdir(exist_ok=True)
     clone_dir = tmp_base / "verify_clone"
     if clone_dir.exists():
-        shutil.rmtree(clone_dir)
+        import contextlib
+        import os
+        import stat
+
+        def _on_rm_error(func: object, path: str, exc_info: object) -> None:
+            with contextlib.suppress(Exception):
+                os.chmod(path, stat.S_IWRITE)
+                if func is not None:
+                    with contextlib.suppress(Exception):
+                        func(path)  # type: ignore[operator]
+
+        shutil.rmtree(clone_dir, onerror=_on_rm_error)  # type: ignore[arg-type]
 
     clone_res = run_in_sandbox(f"git clone --depth 1 {original_url} {clone_dir}", cwd=tmp_base, timeout_sec=60)
     if clone_res.returncode != 0:

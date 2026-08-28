@@ -1,0 +1,5 @@
+{
+  "agent": "BuildAgent",
+  "instructions": "see docs/06",
+  "result": "BuildResult(install_pass=True, test_pass=False, docker_pass=None, install_log=SandboxResult(command='npm install --ignore-scripts', returncode=0, stdout='\\nadded 1 package, and audited 2 packages in 2s\\n\\n1 high severity vulnerability\\n\\nTo address all issues, run:\\n  npm audit fix --force\\n\\nRun `npm audit` for details.\\n', stderr='', timed_out=False), test_log=SandboxResult(command='npm test', returncode=1, stdout='\\n> test-vuln@1.0.0 test\\n> node -e \"process.exit(1)\"\\n\\n', stderr='', timed_out=False), docker_log=None, test_summary='> test-vuln@1.0.0 test\\n> node -e \"process.exit(1)\"', package_manager='npm')"
+}
