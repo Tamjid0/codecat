@@ -86,7 +86,19 @@ def ensure_tmp_repo(url: str, base: Path | None = None) -> tuple[Path, SandboxRe
     tmp_base.mkdir(parents=True, exist_ok=True)
     dest = tmp_base / repo_hash(url)
     if dest.exists():
-        shutil.rmtree(dest)
+        # Windows: git pack files are read-only -> PermissionError without onerror
+        def _on_rm_error(func: object, path: str, exc_info: object) -> None:
+            import contextlib
+            import os
+            import stat
+
+            with contextlib.suppress(Exception):
+                os.chmod(path, stat.S_IWRITE)
+                if func is not None:
+                    with contextlib.suppress(Exception):
+                        func(path)  # type: ignore[operator]
+
+        shutil.rmtree(dest, onerror=_on_rm_error)  # type: ignore[arg-type]
     # Use host git for speed; sandbox isolates install/test steps
     result = run_in_sandbox(f"git clone --depth 1 {url} {dest}", cwd=tmp_base, timeout_sec=60)
     return dest, result

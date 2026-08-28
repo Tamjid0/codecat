@@ -1,0 +1,23 @@
+{
+  "baseline_spearman": 0.0,
+  "advanced_spearman": 0.0,
+  "delta_spearman": 0.0,
+  "per_repo": [
+    {
+      "url": "https://github.com/octocat/Hello-World",
+      "expert_rank": 1,
+      "baseline_overall": 57.0,
+      "advanced_overall": 70.0,
+      "advanced_verdict": "HOLD",
+      "has_evidence": true
+    },
+    {
+      "url": "file://C:/Temp/codecat_test_vuln_pass",
+      "expert_rank": 2,
+      "baseline_overall": 57.0,
+      "advanced_overall": 69.0,
+      "advanced_verdict": "HOLD",
+      "has_evidence": true
+    }
+  ]
+}

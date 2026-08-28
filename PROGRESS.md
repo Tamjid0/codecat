@@ -52,14 +52,16 @@
 - [ ] 6.5 HackerEarth submission draft
 
 ## Current Status
-- **In progress:** 4.1 evaluation harness test (2-repo)
-- **Next:** 4.2 full 10-repo eval
+- **In progress:** 4.2 full 10-repo eval (preparing)
+- **Next:** 5.1 quality gates + 6 deliverables
 - **Blockers:** none
-- **Last updated:** 2026-08-29 03:50
+- **Last updated:** 2026-08-29 04:00
 
 ## Log
 - 2026-08-29 02:30 — Locked base spec, README, docs 01-07, AGENTS.md created. Awaiting scaffold files before commit.
 - 2026-08-29 03:00 — Commit 39b8c57 docs: lock 48h base spec 100%. Phase 0 done.
 - 2026-08-29 03:05 — Starting Phase 1.1 sandbox.
 - 2026-08-29 03:20 — Phase 1 done: 4 tools + 6 tests, ruff PASS. Commit 134c24f.
-- 2026-08-29 03:45 — Phase 2+3 done: 8 agents + orchestrator + CLI, verified 3 repos (Hello-World, vuln fail, vuln pass 69→81). Race bug fixed (Build→DepSec sequential), BOM fix, verifier fallback. Commit pending.
+- 2026-08-29 03:45 — Phase 2+3 done: 8 agents + orchestrator + CLI, verified 3 repos (Hello-World, vuln fail, vuln pass 69→81). Race bug fixed (Build→DepSec sequential), BOM fix, verifier fallback. Commit 7b801b9.
+- 2026-08-29 03:50 — Smoke eval 2-repo passed (advanced 70 vs 69), Windows rmtree fix, ruff PASS.
+- 2026-08-29 04:00 — Phase 4: Created 3 synthetic fixtures (circular, lying README, broken docker) + 10_repos_final.json locked. Ready for full eval.

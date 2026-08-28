@@ -1,0 +1,4 @@
+{
+  "agent": "Aggregator",
+  "target": "FixTarget(kind='dep_bump', file='package.json', detail='1 high CVE bump')"
+}
