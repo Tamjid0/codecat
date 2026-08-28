@@ -51,9 +51,11 @@ def heuristic_fix(target_kind: str, repo_path: Path) -> str | None:
 
 
 def llm_fix(target_kind: str, detail: str, file_snippet: str) -> str | None:
-    """Call LLM if OPENAI_API_KEY set, else heuristic. Return unified diff or None."""
+    """Call LLM if OPENAI_API_KEY set — but ONLY for dep_bump, not tests (hallucination risk, budget $1.5)."""
     import os
 
+    if target_kind != "dep_bump":
+        return None  # No LLM for tests — heuristic only, saves budget and avoids hallucinated patches like is/example.py
     key = os.getenv("OPENAI_API_KEY", "")
     if not key:
         return None

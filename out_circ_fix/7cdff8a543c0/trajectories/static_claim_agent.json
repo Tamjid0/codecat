@@ -1,0 +1,4 @@
+{
+  "agent": "StaticClaimAgent",
+  "result": "StaticClaimResult(circular_log=SandboxResult(command=\"npx --yes madge --circular --extensions ts,js src 2>&1 || echo 'madge not found'\", returncode=0, stdout=\"- Finding files\\nProcessed 2 files (501ms) \\n\\n\u00e2\u0153\u2013 Found 1 circular dependency!\\n\\n1) a.js > b.js\\n\\n'madge not found'\\n\", stderr='', timed_out=False), complexity_log=SandboxResult(command='radon cc', returncode=0, stdout='', stderr='no python', timed_out=False), cloc_log=SandboxResult(command='npx --yes cloc --json . 2>&1 | head -n 80', returncode=255, stdout='', stderr=\"'head' is not recognized as an internal or external command,\\noperable program or batch file.\\n\", timed_out=False), claims=[], has_circular=True)"
+}

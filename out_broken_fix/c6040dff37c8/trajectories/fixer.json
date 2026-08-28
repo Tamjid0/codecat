@@ -1,0 +1,8 @@
+{
+  "target": {
+    "kind": "docker",
+    "file": "Dockerfile",
+    "detail": "docker build fails"
+  },
+  "patch": null
+}

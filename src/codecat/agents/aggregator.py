@@ -24,7 +24,7 @@ def aggregate(
 ) -> list[RiskArea]:
     areas: list[RiskArea] = []
 
-    # Testing
+    # Testing — lint-only failures (xo, warnings) are medium, not critical
     if build.test_pass is True:
         areas.append(
             RiskArea(
@@ -37,16 +37,31 @@ def aggregate(
             )
         )
     elif build.test_pass is False:
-        areas.append(
-            RiskArea(
-                area="Testing",
-                score=35,
-                severity=Severity.critical,
-                evidence=[_evidence("evidence/test.log", 1, build.test_summary)],
-                cost_to_fix="4h",
-                summary=f"Tests fail: {build.test_summary}",
+        # Distinguish real test failures vs lint/environment warnings
+        summary_low = build.test_summary.lower()
+        is_lint_only = any(k in summary_low for k in ["xo", "warning", "parsing error", "max-lines", "todo comment"])
+        if is_lint_only:
+            areas.append(
+                RiskArea(
+                    area="Testing",
+                    score=65,
+                    severity=Severity.medium,
+                    evidence=[_evidence("evidence/test.log", 1, build.test_summary)],
+                    cost_to_fix="2h lint",
+                    summary=f"Lint warnings (not unit fail): {build.test_summary[:120]}",
+                )
             )
-        )
+        else:
+            areas.append(
+                RiskArea(
+                    area="Testing",
+                    score=35,
+                    severity=Severity.critical,
+                    evidence=[_evidence("evidence/test.log", 1, build.test_summary)],
+                    cost_to_fix="4h",
+                    summary=f"Tests fail: {build.test_summary}",
+                )
+            )
     else:
         areas.append(
             RiskArea(
@@ -118,16 +133,27 @@ def aggregate(
             )
         )
 
-    # Architecture
-    if static.has_circular:
+    # Architecture (+ Docker failure penalty)
+    if build.docker_pass is False:
         areas.append(
             RiskArea(
                 area="Architecture",
-                score=45,
-                severity=Severity.medium,
+                score=30,
+                severity=Severity.critical,
+                evidence=[_evidence("evidence/docker.log", 1, "docker build FAIL")],
+                cost_to_fix="1d",
+                summary="Docker build fails — deployment blocked",
+            )
+        )
+    elif static.has_circular:
+        areas.append(
+            RiskArea(
+                area="Architecture",
+                score=30,
+                severity=Severity.critical,
                 evidence=[_evidence("evidence/madge.log", 1, "circular found")],
                 cost_to_fix="1w",
-                summary="Circular dependency detected",
+                summary="Circular dependency detected — tight coupling",
             )
         )
     else:

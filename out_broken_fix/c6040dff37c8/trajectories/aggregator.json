@@ -1,0 +1,4 @@
+{
+  "agent": "Aggregator",
+  "target": "FixTarget(kind='docker', file='Dockerfile', detail='docker build fails')"
+}

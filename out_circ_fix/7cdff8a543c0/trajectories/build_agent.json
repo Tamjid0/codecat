@@ -1,0 +1,5 @@
+{
+  "agent": "BuildAgent",
+  "instructions": "see docs/06",
+  "result": "BuildResult(install_pass=True, test_pass=True, docker_pass=None, install_log=SandboxResult(command='npm install --ignore-scripts', returncode=0, stdout='\\nup to date, audited 1 package in 482ms\\n\\nfound 0 vulnerabilities\\n', stderr='', timed_out=False), test_log=SandboxResult(command='npm test', returncode=0, stdout='\\n> circular@1.0.0 test\\n> node -e \"process.exit(0)\"\\n\\n', stderr='', timed_out=False), docker_log=None, test_summary='> circular@1.0.0 test\\n> node -e \"process.exit(0)\"', package_manager='npm')"
+}
