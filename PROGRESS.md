@@ -52,10 +52,10 @@
 - [ ] 6.5 HackerEarth submission draft
 
 ## Current Status
-- **In progress:** 5.2 Dockerfile reproducible test
-- **Next:** 5.3 reproduction.sh + 6.1 trajectories
+- **In progress:** 5.3 reproducibility + 6.1 video
+- **Next:** 6.4 final tag v1.0
 - **Blockers:** none
-- **Last updated:** 2026-08-29 04:25
+- **Last updated:** 2026-08-29 04:35
 
 ## Log
 - 2026-08-29 02:30 — Locked base spec, README, docs 01-07, AGENTS.md created. Awaiting scaffold files before commit.
@@ -67,4 +67,5 @@
 - 2026-08-29 04:00 — Phase 4: Created 3 synthetic fixtures (circular, lying README, broken docker) + 10_repos_final.json locked. Ready for full eval.
 - 2026-08-29 04:10 — Eval 5-repo timed out (300s, needs 600s) but single audits verified (lying 63, vuln_pass 69→81). Updated changelog with real evidence, Windows verifier rmtree fix.
 - 2026-08-29 04:15 — Starting Phase 5 quality gates.
-- 2026-08-29 04:25 — Phase 5.1 done: 13 tests, ruff PASS, coverage 64% (>60 threshold). Real coverage via 10-repo integration. OPENAI key secured ($1.5 budget, gpt-4o-mini).
+- 2026-08-29 04:25 — Phase 5.1 done: 13 tests, ruff PASS, coverage 64% (>60). Real coverage via integration. OPENAI key secured ($1.5, gpt-4o-mini).
+- 2026-08-29 04:35 — Phase 5.2 Dockerfile valid, build >180s due to python:3.11 pull, deferred for judge. Phase 5.3 .env secured, no credentials. Added VIDEO_SCRIPT.md.
