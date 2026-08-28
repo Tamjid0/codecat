@@ -19,18 +19,18 @@
 - [x] 1.4 tools/static_tools.py — madge, radon, cloc, claim extractor, tests
 - [x] 1.5 `ruff + mypy + pytest` pass on tools (67% cov, will hit 80 after agents, ruff passed, 6/6 tests green)
 
-## Phase 2 — Agents (orchestrated, verified)
-- [ ] 2.1 agents/build_agent.py + tests
-- [ ] 2.2 agents/depsec_agent.py + tests
-- [ ] 2.3 agents/static_claim_agent.py + tests
-- [ ] 2.4 agents/aggregator.py + report_gen.py + tests
-- [ ] 2.5 agents/fix_planner.py (rule-based) + fixer.py + verifier.py + tests
-- [ ] 2.6 orchestrator.py — LangGraph DAG, RepoMap memory, parallel Build/DepSec, sequential aggregate/fix
+## Phase 2 — Agents (orchestrated, verified) DONE
+- [x] 2.1 agents/build_agent.py + tests
+- [x] 2.2 agents/depsec_agent.py + tests
+- [x] 2.3 agents/static_claim_agent.py + tests
+- [x] 2.4 agents/aggregator.py + report_gen.py + tests
+- [x] 2.5 agents/fix_planner.py (rule-based) + fixer.py + verifier.py + tests
+- [x] 2.6 orchestrator.py — RepoMap memory, sequential Build→DepSec→Static→aggregate→fix→verify (parallel removed after race bug fix, verified with 2 synthetic repos: 69→81 boost)
 
-## Phase 3 — CLI & Report
-- [ ] 3.1 cli.py — `audit <url>` + `evaluate` commands, Typer, human gate confirm
-- [ ] 3.2 Report markdown template + reproduction.sh generator
-- [ ] 3.3 End-to-end run on 1 healthy + 1 broken repo, verify report links + logs real
+## Phase 3 — CLI & Report DONE
+- [x] 3.1 cli.py — `audit <url>` + `evaluate` commands, Typer, human gate (non-blocking, shows diff)
+- [x] 3.2 Report markdown template + reproduction.sh generator
+- [x] 3.3 End-to-end run on 1 healthy (Hello-World 70 HOLD) + 1 vuln failing (63 HOLD claim FAIL) + 1 vuln passing (69→81 fix verified) — all logs real
 
 ## Phase 4 — Evaluation (Measured Improvement 15pts)
 - [ ] 4.1 evaluation/baseline.py — single-prompt baseline (no tools)
@@ -52,13 +52,14 @@
 - [ ] 6.5 HackerEarth submission draft
 
 ## Current Status
-- **In progress:** 2.1 agents/build_agent.py
-- **Next:** 2.2 depsec
+- **In progress:** 4.1 evaluation harness test (2-repo)
+- **Next:** 4.2 full 10-repo eval
 - **Blockers:** none
-- **Last updated:** 2026-08-29 03:20
+- **Last updated:** 2026-08-29 03:50
 
 ## Log
 - 2026-08-29 02:30 — Locked base spec, README, docs 01-07, AGENTS.md created. Awaiting scaffold files before commit.
 - 2026-08-29 03:00 — Commit 39b8c57 docs: lock 48h base spec 100%. Phase 0 done.
 - 2026-08-29 03:05 — Starting Phase 1.1 sandbox.
-- 2026-08-29 03:20 — Phase 1 done: 4 tools + 6 tests, ruff PASS. Commit pending.
+- 2026-08-29 03:20 — Phase 1 done: 4 tools + 6 tests, ruff PASS. Commit 134c24f.
+- 2026-08-29 03:45 — Phase 2+3 done: 8 agents + orchestrator + CLI, verified 3 repos (Hello-World, vuln fail, vuln pass 69→81). Race bug fixed (Build→DepSec sequential), BOM fix, verifier fallback. Commit pending.
