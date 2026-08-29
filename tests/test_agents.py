@@ -56,7 +56,7 @@ def test_aggregate_testing_fail_and_cve() -> None:
     scores = {a.area: a.score for a in areas}
     assert scores["Testing"] == 35
     assert scores["Dependencies"] == 30
-    assert scores["Architecture"] == 45
+    assert scores["Architecture"] == 30  # circular now 30 (was 45) per v1.1 fix
 
 
 def test_aggregate_claim_fail() -> None:
