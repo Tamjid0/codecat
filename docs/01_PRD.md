@@ -6,7 +6,7 @@
 **CodeCat — Risk2Fix Auditor** (repo: Tamjid0/codecat)
 
 ## 2. Problem Statement (judging: Problem & User Value 15pts)
-Buyer of unfamiliar repo wastes 3-8h per repo manually verifying quality. README lies, tests broken, deps vulnerable. Wrong valuation costs $10k-$100k.
+Buyer of unfamiliar repo wastes 3-8h per repo manually verifying quality. Repository claims may not match observed behavior (tests broken, deps vulnerable, Docker fails). Wrong valuation costs $10k-$100k.
 
 ## 3. Target User
 Primary: Individual buyer of micro-SaaS / private repo (solo founder, eng lead). Secondary: Engineer inheriting legacy repo. We are our own test user (we understand the pain).

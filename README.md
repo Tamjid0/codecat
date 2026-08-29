@@ -1,7 +1,7 @@
 # CodeCat — Risk2Fix Auditor
 ### Micro1 Frontier Engineering Challenge 2026 (Agentic Workflows Hackathon)
 
-**One-liner:** Paste a GitHub URL → Get an evidence-backed risk report (72/100) + 1 verified fix with before/after sandbox proof.
+**One-liner:** Paste a GitHub URL → Audit → Evidence → Remediation → Independent Verification. Get an evidence-backed risk report (72/100) where every row links to a log, plus one independently verified remediation with before/after sandbox proof (not an AI code-reviewer that fixes code).
 
 **Working directory:** `D:\hacakthon\codecat` | **Language:** Python (core) + TypeScript (optional viewer) | **Solo, Teamsize 1, No feature creep after lock**
 
@@ -18,15 +18,13 @@ Yes — **Risk2Fix** does not just score. It *reproduces*:
 
 ```
 GitHub URL
-  → Clone in isolated sandbox (no host side effects)
-  → Build Agent tries docker build / npm ci / pip install / tests — captures REAL logs
-  → Dependency/Security Agent: npm audit / pip-audit + git log --stat (abandoned files, bus factor)
-  → Static/Claim Agent: complexity, duplication, circular deps + README claim cross-check ("npm test passes" → actually FAIL)
-  → Risk Aggregator: 0-100 score per area, EVERY row → file:line or log:line evidence
-  → Fix Planner: picks TOP 1 fixable (broken build OR 1 critical CVE dep update)
-  → Fixer+Verifier Loop: patches in sandbox, re-runs build/tests in CLEAN sandbox, must PASS (2 retries max)
-  → Human gate approves patch (ground rule 04/05)
+  → Audit (Clone in isolated sandbox)
+  → Evidence (Build Agent: docker build / npm ci / tests → logs; DepSec: audit + git log; Static: circular + claim discrepancy check)
+  → Remediation (Fix Planner picks TOP 1 fixable: CVE bump; Fixer heuristic)
+  → Independent Verification (Verifier re-clones FRESH, applies patch, re-runs tests → after.log)
+  → Human gate approves (ground rule 04/05)
   → Final memo: Before/After score + evidence table + before.log/after.log + patch.diff + reproduction commands
+Core is due diligence; fix demonstrates remediation is verifiable, not the product.
 ```
 
 **Output example:**

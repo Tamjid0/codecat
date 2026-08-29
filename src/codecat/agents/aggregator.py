@@ -192,7 +192,7 @@ def aggregate(
             )
         )
 
-    # README claims — only if any failing claim
+    # Discrepancies between claims and observed behavior — only if any failing claim
     failing_claims = [c for c in static.claims if c.verdict == "FAIL"]
     if failing_claims:
         for fc in failing_claims[:1]:  # one row to keep table concise
@@ -203,7 +203,7 @@ def aggregate(
                     severity=Severity.medium,
                     evidence=[_evidence(fc.evidence_ref, 1, fc.text)],
                     cost_to_fix="2h docs",
-                    summary=f'ReADME claim FAIL: "{fc.text[:80]}"',
+                    summary=f'Discrepancy: claim "{fc.text[:80]}" vs observed FAIL',
                 )
             )
 
