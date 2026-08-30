@@ -1,0 +1,5 @@
+{
+  "agent": "BuildAgent",
+  "instructions": "see docs/06",
+  "result": "BuildResult(install_pass=True, test_pass=True, docker_pass=None, install_log=SandboxResult(command='npm install --ignore-scripts', returncode=0, stdout='\\nadded 333 packages, and audited 334 packages in 39s\\n\\n96 packages are looking for funding\\n  run `npm fund` for details\\n\\nfound 0 vulnerabilities\\n', stderr='', timed_out=False), test_log=SandboxResult(command='npm test', returncode=0, stdout='\\n> moment@2.30.1 test\\n> node scripts/test.js\\n\\n\\nGlobal summary:\\n3909 tests, 163989 assertions, 0 failed tests, 0 failed assertions, 3894ms\\n', stderr='', timed_out=False), docker_log=None, test_summary='tests failed', package_manager='npm')"
+}

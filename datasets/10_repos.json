@@ -4,9 +4,9 @@
   {"id": 3, "url": "https://github.com/octocat/Hello-World", "language": "docs", "expert_rank": 4, "notes": "no deps edge"},
   {"id": 4, "url": "file://C:/Temp/codecat_test_vuln_pass", "language": "javascript", "expert_rank": 7, "notes": "CVE lodash, tests pass - fixable"},
   {"id": 5, "url": "file://C:/Temp/codecat_test_vuln", "language": "javascript", "expert_rank": 8, "notes": "broken tests + CVE - critical"},
-  {"id": 6, "url": "file://C:/Temp/codecat_circular", "language": "javascript", "expert_rank": 9, "notes": "circular deps"},
-  {"id": 7, "url": "file://C:/Temp/codecat_lying_readme", "language": "javascript", "expert_rank": 10, "notes": "CHALLENGING: README lies docker+test"},
+  {"id": 6, "url": "https://github.com/moment/moment", "language": "javascript", "expert_rank": 9, "notes": "real abandoned, circular deps (moment deprecated, real edge)"},
+  {"id": 7, "url": "file://C:/Temp/codecat_lying_readme", "language": "javascript", "expert_rank": 10, "notes": "CHALLENGING: discrepancies between claims and observed behavior (README claims docker works but fails)"},
   {"id": 8, "url": "https://github.com/sindresorhus/awesome", "language": "markdown", "expert_rank": 3, "notes": "docs, no package.json"},
   {"id": 9, "url": "https://github.com/public-apis/public-apis", "language": "python", "expert_rank": 5, "notes": "abandoned files edge - large but okay"},
-  {"id": 10, "url": "file://C:/Temp/codecat_broken_docker", "language": "docker", "expert_rank": 6, "notes": "Dockerfile fails"}
+  {"id": 10, "url": "https://github.com/request/request", "language": "javascript", "expert_rank": 6, "notes": "real abandoned deprecated, 25k stars, ENOLOCK, Tests fail standard missing (real messy edge)"}
 ]
