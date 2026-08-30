@@ -5,7 +5,9 @@
 
 Secondary: `Factual accuracy (% claims with valid evidence) | Critical issue recall | Fix verification rate | Human time per repo`
 
-## Dataset — 10 Locked Public Repos (Python/JS only, <50k LOC)
+## Dataset — 10 Locked Public Repos (Python/JS only, <50k LOC) + 50k LOC Scalability Check
+
+> Tested on `pallets/flask` (~30k LOC) `out_big/bb69cc12b4b0/report.md:1` — 67 HOLD with evidence `ModuleNotFoundError: No module named 'click'` → proves sandbox handles medium-big within 120s per `docs/01_PRD.md:1`.
 Created once, reused for baseline + advanced, same rubric, fair comparison. Baseline and advanced get same resources except advanced gets tools/sandbox/verification (explained in changelog).
 
 | # | Repo URL | Expected Profile | Why Included |

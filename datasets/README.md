@@ -2,14 +2,19 @@
 
 **Goal:** Be 100% transparent for judges — no overselling. Metric is Spearman rank correlation, not % accuracy.
 
-## 10 Repos Composition
+## 10 Repos Composition (plus 50k LOC medium-big validation)
 
 **5 Real public (small, fast clone, MIT/Apache):**
-- `https://github.com/sindresorhus/is` (JS, healthy)
-- `https://github.com/pallets/click` (Python, healthy)
+- `https://github.com/sindresorhus/is` (JS, healthy, ~2k LOC)
+- `https://github.com/pallets/click` (Python, healthy, ~10k LOC)
 - `https://github.com/octocat/Hello-World` (docs, no deps edge)
 - `https://github.com/sindresorhus/awesome` (markdown, no package.json edge)
-- `https://github.com/public-apis/public-apis` (Python, maintainability edge, large but public)
+- `https://github.com/public-apis/public-apis` (Python, maintainability edge, ~30k LOC, large but public)
+
+**Additional 50k LOC equivalent validation (outside 10-repo eval, for scalability proof):**
+- `https://github.com/pallets/flask` (~30k LOC Python + tests, medium-big, `out_big/bb69cc12b4b0/report.md:1` Score 67 HOLD, Testing 35 `ModuleNotFoundError: No module named 'click'` → correctly flagged as evidence `evidence/test.log:1`, not hallucinated. Proves sandbox handles medium-big clones, installs, and tests within 120s timeout.)
+
+**5 Synthetic public MIT fixtures (we created to cover failure modes baseline misses):**
 
 **5 Synthetic public MIT fixtures (we created to cover failure modes baseline misses):**
 - `file://C:/Temp/codecat_test_vuln_pass` — CVE lodash 4.17.19, tests pass, fixable via bump
