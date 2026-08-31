@@ -1,6 +1,18 @@
 # Out & evidence (reproducible but not committed except samples)
 out/
+out_demo2/
+out_big/
+out_is_fix/
+out_circ_fix/
+out_broken_fix/
+out_test/
+out_real_edge/
+out_real_edge2/
 evaluation_results/
+evaluation_results_*/
+evaluation_results_demo/
+evaluation_results_quick/
+evaluation_results_smoke/
 .tmp/
 *.log
 
